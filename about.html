@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — MachineMinds</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+    
+    .display {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .section {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+  <!-- Navbar -->
+  <nav class="border-b border-zinc-800">
+    <div class="section flex items-center justify-between h-16">
+      <div class="flex items-center gap-x-3">
+        <a href="index.html" class="flex items-center gap-x-3">
+          <div class="w-8 h-8 rounded-xl bg-[#6D5BD4]"></div>
+          <span class="font-semibold text-xl tracking-tight">MachineMinds</span>
+        </a>
+      </div>
+      
+      <div class="flex items-center gap-x-8 text-sm">
+        <a href="services.html" class="hover:text-zinc-400 transition-colors">Services</a>
+        <a href="index.html#work" class="hover:text-zinc-400 transition-colors">Work</a>
+        <a href="skills.html" class="hover:text-zinc-400 transition-colors">Skills</a>
+        <a href="about.html" class="text-[#6D5BD4]">About</a>
+      </div>
+      
+      <div>
+        <a href="services.html#contact" class="px-5 py-2 text-sm bg-white text-zinc-950 rounded-xl font-medium hover:bg-zinc-200 transition-colors">Get in touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="section pt-16 pb-12">
+    <h1 class="display text-5xl tracking-tighter">About</h1>
+  </div>
+
+  <!-- Professional Summary -->
+  <div class="section pb-16 max-w-3xl">
+    <div class="text-sm uppercase tracking-[2px] text-zinc-500 mb-3">Professional Summary</div>
+    <div class="text-xl leading-relaxed text-zinc-300">
+      I build practical AI automations and low-cost hardware solutions that help people and businesses reduce repetitive work. 
+      My focus is on creating reliable, maintainable systems using accessible tools like Raspberry Pi, OpenAI, and modern automation platforms.
+    </div>
+  </div>
+
+  <!-- Notable Experience & Projects -->
+  <div class="section pb-20">
+    <div class="text-sm uppercase tracking-[2px] text-zinc-500 mb-6">Notable Experience &amp; Projects</div>
+    
+    <div class="space-y-8 max-w-3xl">
+      <div>
+        <div class="font-semibold">MachineMinds — Founder &amp; Automation Consultant</div>
+        <div class="text-zinc-400 mt-1">Building a portfolio of AI automation services and low-cost hardware solutions for creators and small teams.</div>
+      </div>
+
+      <div>
+        <div class="font-semibold">AI Animation Pipeline (Raspberry Pi + OpenAI)</div>
+        <div class="text-zinc-400 mt-1">Developing a fully automated pipeline for funny-animal AI animation YouTube Shorts using Raspberry Pi, OpenAI API, and free tools. Goal: minimum one video per week with minimal manual effort.</div>
+      </div>
+
+      <div>
+        <div class="font-semibold">Custom Automation Projects</div>
+        <div class="text-zinc-400 mt-1">Delivered workflow automations, monitoring systems, and hardware integrations for clients looking to reduce manual processes.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-8">
+    <div class="section flex flex-col md:flex-row md:items-center justify-between text-sm text-zinc-500 gap-y-4">
+      <div>MachineMinds © 2026</div>
+      <div class="flex gap-x-6">
+        <a href="https://github.com/mdrake96" class="hover:text-zinc-400">GitHub</a>
+        <a href="https://linkedin.com/in/marcus-drake-748864133" class="hover:text-zinc-400">LinkedIn</a>
+        <a href="#" class="hover:text-zinc-400">X</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
