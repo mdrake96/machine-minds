@@ -16,10 +16,6 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
     
-    :root {
-      --accent: #6D5BD4;
-    }
-    
     body {
       font-family: 'Inter', system_ui, sans-serif;
     }
@@ -54,27 +50,26 @@
       
       <div class="flex items-center gap-x-8 text-sm">
         <a href="#services" class="hover:text-zinc-400 transition-colors">Services</a>
-        <a href="#work" class="hover:text-zinc-400 transition-colors">Work</a>
-        <a href="#about" class="hover:text-zinc-400 transition-colors" target="_blank">About</a>
+        <a href="#use-cases" class="hover:text-zinc-400 transition-colors">Use Cases</a>
+        <a href="#projects" class="hover:text-zinc-400 transition-colors">Projects</a>
+        <a href="about.html" class="hover:text-zinc-400 transition-colors">About</a>
       </div>
       
       <div class="flex items-center gap-x-3">
-        <a href="#" class="px-4 py-2 text-sm border border-zinc-700 rounded-xl hover:bg-zinc-900 transition-colors">Newsletter</a>
-        <a href="mailto:mdrake1423@gmail.com" class="px-5 py-2 text-sm bg-white text-zinc-950 rounded-xl font-medium hover:bg-zinc-200 transition-colors">Get in touch</a>
+        <a href="mailto:mdrake1423@gmail.com" class="px-5 py-2 text-sm bg-white text-zinc-950 rounded-xl font-medium hover:bg-zinc-200 transition-colors">Book a Call</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <div class="section pt-20 pb-16">
     <div class="max-w-3xl">
       <h1 class="display text-6xl md:text-7xl tracking-tighter leading-none">
-        Practical AI automations<br>
-        and hardware solutions.
+        Build AI Automation That Actually Saves You Time and Money
       </h1>
       
       <p class="mt-6 text-xl text-zinc-400 max-w-[42ch]">
-        Helping people and businesses reduce repetitive work through reliable automation and low-cost hardware setups.
+        We design and deploy AI agents, automation workflows, and API integrations that eliminate repetitive work and scale your business operations.
       </p>
       
       <div class="flex items-center gap-x-4 mt-10">
@@ -82,100 +77,144 @@
            class="inline-flex items-center justify-center px-8 py-3.5 bg-[#6D5BD4] text-white rounded-2xl font-medium hover:bg-[#5d4dc4] transition-colors">
           View services
         </a>
-        <a href="#work" 
+        <a href="mailto:mdrake1423@gmail.com" 
            class="inline-flex items-center justify-center px-8 py-3.5 border border-zinc-700 rounded-2xl hover:bg-zinc-900 transition-colors">
-          See work
+          Book a Free Consultation
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Trust / Quick value -->
-  <div class="section pb-20">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="border border-zinc-800 rounded-3xl p-6">
-        <div class="text-sm text-zinc-500 mb-2">For freelancers &amp; creators</div>
-        <div class="text-lg">Automation audits and custom workflow setups that actually save time.</div>
-      </div>
-      <div class="border border-zinc-800 rounded-3xl p-6">
-        <div class="text-sm text-zinc-500 mb-2">For teams &amp; businesses</div>
-        <div class="text-lg">Reliable AI integrations and Raspberry Pi solutions with clear documentation.</div>
-      </div>
-      <div class="border border-zinc-800 rounded-3xl p-6">
-        <div class="text-sm text-zinc-500 mb-2">For employers</div>
-        <div class="text-lg">Hands-on experience building real automation systems from the ground up.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Services -->
+  <!-- Services Section -->
   <div id="services" class="section py-16 border-t border-zinc-800">
-    <div class="max-w-3xl">
+    <div class="max-w-3xl mb-10">
       <div class="text-sm text-zinc-500 mb-2">WHAT WE OFFER</div>
       <h2 class="display text-4xl tracking-tighter">Services</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- AI Automation Systems -->
       <div class="border border-zinc-800 rounded-3xl p-8">
-        <div class="text-xl mb-4">AI Automation &amp; Workflows</div>
-        <div class="text-zinc-400">Custom n8n workflows, lead intelligence systems, and process automation that integrate with existing tools.</div>
+        <div class="text-xl mb-6 font-medium">AI Automation Systems</div>
+        <ul class="space-y-3 text-zinc-400">
+          <li class="flex items-start gap-2">• Custom workflow automation</li>
+          <li class="flex items-start gap-2">• Business process automation</li>
+          <li class="flex items-start gap-2">• Internal tools</li>
+        </ul>
       </div>
+
+      <!-- Marketing Automation -->
       <div class="border border-zinc-800 rounded-3xl p-8">
-        <div class="text-xl mb-4">Hardware &amp; IoT Solutions</div>
-        <div class="text-zinc-400">Raspberry Pi based systems, sensors, and low-cost hardware setups for data collection and automation.</div>
+        <div class="text-xl mb-6 font-medium">Marketing Automation</div>
+        <ul class="space-y-3 text-zinc-400">
+          <li class="flex items-start gap-2">• AI email workflows</li>
+          <li class="flex items-start gap-2">• Lead capture systems</li>
+          <li class="flex items-start gap-2">• CRM + webhook integrations</li>
+        </ul>
       </div>
+
+      <!-- AI Agents -->
       <div class="border border-zinc-800 rounded-3xl p-8">
-        <div class="text-xl mb-4">Lead Intelligence Systems</div>
-        <div class="text-zinc-400">Compliant data pipelines using Apify actors, enrichment, and analysis for targeted lead generation.</div>
-      </div>
-      <div class="border border-zinc-800 rounded-3xl p-8">
-        <div class="text-xl mb-4">Consulting &amp; Audits</div>
-        <div class="text-zinc-400">Workflow audits, system reviews, and recommendations for teams looking to reduce manual work.</div>
+        <div class="text-xl mb-6 font-medium">AI Agents</div>
+        <ul class="space-y-3 text-zinc-400">
+          <li class="flex items-start gap-2">• Hermes / LLM-based agents</li>
+          <li class="flex items-start gap-2">• Task automation bots</li>
+          <li class="flex items-start gap-2">• API-connected assistants</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- Proof of Concept - Town Lake -->
-  <div id="work" class="section py-16 border-t border-zinc-800">
-    <div class="max-w-3xl">
-      <div class="text-sm text-zinc-500 mb-2">PROOF OF CONCEPT</div>
-      <h2 class="display text-4xl tracking-tighter">Town Lake Development</h2>
-      <p class="mt-4 text-zinc-400">A fully automated lead intelligence system was built for a real estate development client using n8n, Apify Facebook Ad Library scrapers, and enrichment actors. The system delivers compliant, structured lead lists on a schedule with optional OpenAI analysis. <a href="https://www.townlakedevelopment.com/" class="text-[#6D5BD4] hover:underline">Visit Town Lake Development →</a></p>
+  <!-- Example Use Cases -->
+  <div id="use-cases" class="section py-16 border-t border-zinc-800">
+    <div class="max-w-3xl mb-10">
+      <div class="text-sm text-zinc-500 mb-2">PROOF IN ACTION</div>
+      <h2 class="display text-4xl tracking-tighter">Example Use Cases</h2>
     </div>
 
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="border border-zinc-800 rounded-3xl p-6">
-        <div class="text-sm text-zinc-500 mb-2">Challenge</div>
-        <div class="text-lg">Manual lead research was slow and inconsistent. A reliable, compliant data pipeline was required.</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-colors">
+        <div class="text-lg font-medium mb-3">Automate Lead Follow-Up</div>
+        <div class="text-zinc-400">AI sends responses instantly</div>
       </div>
-      <div class="border border-zinc-800 rounded-3xl p-6">
-        <div class="text-sm text-zinc-500 mb-2">Solution</div>
-        <div class="text-lg">Apify actors were chained in n8n with schedule triggers and data tables for structured output delivered via MCP.</div>
+      
+      <div class="border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-colors">
+        <div class="text-lg font-medium mb-3">Content Automation</div>
+        <div class="text-zinc-400">YouTube / social pipelines</div>
       </div>
-      <div class="border border-zinc-800 rounded-3xl p-6">
-        <div class="text-sm text-zinc-500 mb-2">Result</div>
-        <div class="text-lg">Automated weekly lead lists with full audit trail and easy client access through n8n MCP tools.</div>
+      
+      <div class="border border-zinc-800 rounded-3xl p-8 hover:border-zinc-700 transition-colors">
+        <div class="text-lg font-medium mb-3">Internal Task Automation</div>
+        <div class="text-zinc-400">Reports, scraping, dashboards</div>
       </div>
     </div>
   </div>
 
-  <!-- Industries -->
-  <div class="section py-16 border-t border-zinc-800">
-    <div class="max-w-3xl">
-      <div class="text-sm text-zinc-500 mb-2">INDUSTRIES</div>
-      <h2 class="display text-4xl tracking-tighter">Industries</h2>
-      <p class="mt-4 text-zinc-400">Automation and hardware solutions are delivered across a range of industries that benefit from reliable data pipelines and low-cost systems.</p>
+  <!-- Projects Section -->
+  <div id="projects" class="section py-16 border-t border-zinc-800">
+    <div class="max-w-3xl mb-10">
+      <div class="text-sm text-zinc-500 mb-2">SELECTED WORK</div>
+      <h2 class="display text-4xl tracking-tighter">Projects</h2>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">Medical Labs</div>
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">Industrial</div>
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">Real Estate Development</div>
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">Home Services</div>
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">HVAC &amp; Roofing</div>
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">Landscaping</div>
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">Professional Services</div>
-      <div class="border border-zinc-800 rounded-3xl p-6 text-lg">Service Businesses</div>
+    <!-- Town Lake Development - Featured Proof of Concept -->
+    <div class="mb-12">
+      <div class="max-w-3xl">
+        <h3 class="text-2xl tracking-tight mb-3">Town Lake Development</h3>
+        <p class="text-zinc-400">A fully automated lead intelligence system was built for a real estate development client using n8n, Apify Facebook Ad Library scrapers, and enrichment actors. The system delivers compliant, structured lead lists on a schedule with optional OpenAI analysis. <a href="https://www.townlakedevelopment.com/" class="text-[#6D5BD4] hover:underline" target="_blank">Visit Town Lake Development →</a></p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="border border-zinc-800 rounded-3xl p-6">
+          <div class="text-sm text-zinc-500 mb-2">Challenge</div>
+          <div class="text-lg">Manual lead research was slow and inconsistent. A reliable, compliant data pipeline was required.</div>
+        </div>
+        <div class="border border-zinc-800 rounded-3xl p-6">
+          <div class="text-sm text-zinc-500 mb-2">Solution</div>
+          <div class="text-lg">Apify actors were chained in n8n with schedule triggers and data tables for structured output delivered via MCP.</div>
+        </div>
+        <div class="border border-zinc-800 rounded-3xl p-6">
+          <div class="text-sm text-zinc-500 mb-2">Result</div>
+          <div class="text-lg">Automated weekly lead lists with full audit trail and easy client access through n8n MCP tools.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Projects -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- YouTube Automation Pipeline -->
+      <div class="border border-zinc-800 rounded-3xl p-8">
+        <div class="text-xl mb-4">YouTube Automation Pipeline</div>
+        <div class="text-zinc-400 mb-6">End-to-end funny animal AI animation YouTube Shorts pipeline with audio variation and weekly delivery.</div>
+        <div class="text-xs px-3 py-1 bg-zinc-900 text-zinc-500 rounded-full inline-block">n8n + OpenAI + FFmpeg</div>
+      </div>
+
+      <!-- Hermes AI Agent -->
+      <div class="border border-zinc-800 rounded-3xl p-8">
+        <div class="text-xl mb-4">Hermes AI Agent</div>
+        <div class="text-zinc-400 mb-6">Custom LLM agent system with tool use, memory, MCP integration, and autonomous workflow execution.</div>
+        <div class="text-xs px-3 py-1 bg-zinc-900 text-zinc-500 rounded-full inline-block">Hermes + n8n MCP</div>
+      </div>
+
+      <!-- API Automation Systems -->
+      <div class="border border-zinc-800 rounded-3xl p-8">
+        <div class="text-xl mb-4">API Automation Systems</div>
+        <div class="text-zinc-400 mb-6">Compliant lead intelligence platform using Apify Facebook Ad Library scrapers, n8n orchestration, and data tables delivered via MCP.</div>
+        <div class="text-xs px-3 py-1 bg-zinc-900 text-zinc-500 rounded-full inline-block">n8n + Apify + MCP</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final CTA -->
+  <div class="section py-20 border-t border-zinc-800">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="display text-4xl tracking-tighter mb-4">Let's build your first automation system</h2>
+      <p class="text-zinc-400 mb-8">Ready to eliminate repetitive work and scale your operations?</p>
+      
+      <a href="mailto:mdrake1423@gmail.com" 
+         class="inline-flex items-center justify-center px-10 py-4 bg-[#6D5BD4] text-white rounded-2xl font-medium text-lg hover:bg-[#5d4dc4] transition-colors">
+        Book a Call
+      </a>
     </div>
   </div>
 
