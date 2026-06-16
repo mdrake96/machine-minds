@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Lead Response Demo • MachineMinds</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+    
+    .display {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .demo-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .response-bubble {
+      animation: fadeInUp 0.4s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .industry-tab {
+      transition: all 0.2s ease;
+    }
+    
+    .industry-tab.active {
+      background-color: #6D5BD4;
+      color: white;
+      border-color: #6D5BD4;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+  <div class="max-w-5xl mx-auto px-6 py-12">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-10">
+      <div class="flex items-center gap-x-3">
+        <div class="w-9 h-9 rounded-2xl bg-[#6D5BD4]"></div>
+        <div>
+          <div class="font-semibold text-xl tracking-tight">MachineMinds</div>
+          <div class="text-xs text-zinc-500 -mt-0.5">AI Lead Automation</div>
+        </div>
+      </div>
+      <div class="text-sm px-4 py-1.5 bg-zinc-900 rounded-full border border-zinc-800">
+        Live Demo
+      </div>
+    </div>
+
+    <div class="max-w-3xl">
+      <h1 class="display text-5xl tracking-tighter leading-none mb-4">
+        AI Lead Response + Follow-Up System
+      </h1>
+      <p class="text-xl text-zinc-400">
+        See how construction companies and medical labs get instant, expert-level responses to every lead — automatically.
+      </p>
+    </div>
+
+    <!-- Industry Selector -->
+    <div class="flex gap-3 mt-10 mb-8">
+      <button onclick="switchIndustry('construction')" id="tab-construction"
+              class="industry-tab active flex-1 md:flex-none px-8 py-3 rounded-2xl border border-[#6D5BD4] text-sm font-medium flex items-center justify-center gap-x-2">
+        <span>🏗️</span>
+        <span>Construction Companies</span>
+      </button>
+      <button onclick="switchIndustry('medlabs')" id="tab-medlabs"
+              class="industry-tab flex-1 md:flex-none px-8 py-3 rounded-2xl border border-zinc-700 hover:border-zinc-600 text-sm font-medium flex items-center justify-center gap-x-2">
+        <span>🧪</span>
+        <span>Medical Labs</span>
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      
+      <!-- Form -->
+      <div class="lg:col-span-3">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+          <div class="mb-6">
+            <div class="text-sm text-zinc-500 mb-1" id="form-subtitle">For Construction Companies</div>
+            <div class="text-2xl font-semibold tracking-tight" id="form-title">Get a project quote</div>
+          </div>
+
+          <form id="lead-form" onsubmit="submitLead(event)">
+            <div class="space-y-5">
+              <div>
+                <label class="text-sm text-zinc-400 block mb-1.5">Full Name</label>
+                <input type="text" id="name" required 
+                       class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
+              </div>
+              
+              <div class="grid grid-cols-2 gap-5">
+                <div>
+                  <label class="text-sm text-zinc-400 block mb-1.5">Email Address</label>
+                  <input type="email" id="email" required 
+                         class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
+                </div>
+                <div>
+                  <label class="text-sm text-zinc-400 block mb-1.5">Phone</label>
+                  <input type="tel" id="phone" required 
+                         class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
+                </div>
+              </div>
+
+              <div>
+                <label class="text-sm text-zinc-400 block mb-1.5" id="message-label">Project Details</label>
+                <textarea id="message" rows="4" required 
+                          class="w-full bg-zinc-950 border border-zinc-800 rounded-3xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4] resize-y"
+                          placeholder="Tell us about your project..."></textarea>
+              </div>
+
+              <button type="submit"
+                      class="w-full mt-2 bg-[#6D5BD4] hover:bg-[#5d4dc4] transition-colors py-3.5 rounded-2xl font-medium text-sm">
+                Submit Inquiry
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- What happens next -->
+      <div class="lg:col-span-2">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 h-full">
+          <div class="text-sm text-zinc-500 mb-4">WHAT HAPPENS NEXT</div>
+          
+          <div class="space-y-5 text-sm">
+            <div class="flex gap-4">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xs font-mono mt-0.5">1</div>
+              <div>
+                <div class="font-medium">Instant AI Response</div>
+                <div class="text-zinc-400 text-xs mt-0.5">Expert reply generated in &lt;3 seconds</div>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xs font-mono mt-0.5">2</div>
+              <div>
+                <div class="font-medium">Lead Logged</div>
+                <div class="text-zinc-400 text-xs mt-0.5">Saved with full context and timestamp</div>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xs font-mono mt-0.5">3</div>
+              <div>
+                <div class="font-medium">Smart Follow-ups</div>
+                <div class="text-zinc-400 text-xs mt-0.5">1-day and 3-day sequences triggered</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Response Preview -->
+    <div id="response-section" class="hidden mt-10">
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-x-3 mb-4">
+          <div class="text-sm text-zinc-500">AI RESPONSE SENT</div>
+          <div class="h-px flex-1 bg-zinc-800"></div>
+        </div>
+        
+        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 demo-card">
+          <div class="flex items-center gap-x-3 mb-5">
+            <div class="w-9 h-9 rounded-full bg-[#6D5BD4] flex items-center justify-center text-xs font-medium">AI</div>
+            <div>
+              <div class="font-medium" id="responder-name">Senior Estimator</div>
+              <div class="text-xs text-zinc-500" id="responder-company">Town Lake Development</div>
+            </div>
+          </div>
+          
+          <div class="prose prose-invert text-sm text-zinc-300 leading-relaxed" id="ai-response">
+            <!-- Populated by JS -->
+          </div>
+          
+          <div class="mt-6 pt-6 border-t border-zinc-800 text-xs text-emerald-400 flex items-center gap-x-2">
+            <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
+            <span>Sent via Gmail • Logged in Airtable • Follow-up scheduled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center text-xs text-zinc-500">
+      This is a live simulation. In production this runs on n8n + Hermes with real email delivery and CRM logging.
+    </div>
+  </div>
+
+  <script>
+    let currentIndustry = 'construction';
+
+    function switchIndustry(industry) {
+      currentIndustry = industry;
+      
+      const tabConstruction = document.getElementById('tab-construction');
+      const tabMedlabs = document.getElementById('tab-medlabs');
+      
+      const formTitle = document.getElementById('form-title');
+      const formSubtitle = document.getElementById('form-subtitle');
+      const messageLabel = document.getElementById('message-label');
+      const messageField = document.getElementById('message');
+
+      if (industry === 'construction') {
+        tabConstruction.classList.add('active', 'border-[#6D5BD4]');
+        tabConstruction.classList.remove('border-zinc-700');
+        tabMedlabs.classList.remove('active', 'border-[#6D5BD4]');
+        tabMedlabs.classList.add('border-zinc-700');
+        
+        formTitle.innerText = 'Get a project quote';
+        formSubtitle.innerText = 'For Construction Companies';
+        messageLabel.innerText = 'Project Details';
+        messageField.placeholder = 'Tell us about your project or bid request...';
+      } else {
+        tabMedlabs.classList.add('active', 'border-[#6D5BD4]');
+        tabMedlabs.classList.remove('border-zinc-700');
+        tabConstruction.classList.remove('active', 'border-[#6D5BD4]');
+        tabConstruction.classList.add('border-zinc-700');
+        
+        formTitle.innerText = 'Request lab services';
+        formSubtitle.innerText = 'For Medical Laboratories';
+        messageLabel.innerText = 'Service Requirements';
+        messageField.placeholder = 'Describe the testing or analysis you need...';
+      }
+      
+      // Clear previous response
+      document.getElementById('response-section').classList.add('hidden');
+    }
+
+    function submitLead(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+
+      const responseSection = document.getElementById('response-section');
+      const aiResponseEl = document.getElementById('ai-response');
+      const responderName = document.getElementById('responder-name');
+      const responderCompany = document.getElementById('responder-company');
+
+      responseSection.classList.remove('hidden');
+      responseSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Simulate AI thinking
+      aiResponseEl.innerHTML = `<span class="text-zinc-500">Generating expert response...</span>`;
+
+      setTimeout(() => {
+        let responseHTML = '';
+        
+        if (currentIndustry === 'construction') {
+          responderName.innerText = 'Senior Project Estimator';
+          responderCompany.innerText = 'Town Lake Development';
+          
+          responseHTML = `
+            Hi ${name},<br><br>
+            Thanks for reaching out about your project. We specialize in commercial and residential developments and would be happy to help.<br><br>
+            To give you an accurate quote, could you share:<br>
+            • Expected start date and timeline?<br>
+            • Site location and any known constraints?<br><br>
+            Looking forward to learning more.<br><br>
+            Best regards,<br>
+            <strong>Marcus Rivera</strong><br>
+            Senior Estimator, Town Lake Development
+          `;
+        } else {
+          responderName.innerText = 'Laboratory Operations Manager';
+          responderCompany.innerText = 'ABDA Labs';
+          
+          responseHTML = `
+            Hello ${name},<br><br>
+            Thank you for your inquiry. ABDA Labs provides high-complexity testing with fast turnaround times for clinical and research clients.<br><br>
+            To prepare an accurate proposal, could you let me know:<br>
+            • Sample type and volume?<br>
+            • Required turnaround time?<br>
+            • Any specific accreditations needed (CLIA, CAP, etc.)?<br><br>
+            I’ll get a detailed quote prepared for you shortly.<br><br>
+            Best,<br>
+            <strong>Dr. Lena Patel</strong><br>
+            Laboratory Operations Manager, ABDA Labs
+          `;
+        }
+        
+        aiResponseEl.innerHTML = responseHTML;
+      }, 1350);
+    }
+
+    // Initialize with construction
+    window.onload = function() {
+      document.getElementById('tab-construction').classList.add('active', 'border-[#6D5BD4]');
+    }
+  </script>
+</body>
+</html>
