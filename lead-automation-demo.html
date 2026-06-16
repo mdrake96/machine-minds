@@ -36,16 +36,6 @@
         transform: translateY(0);
       }
     }
-
-    .industry-tab {
-      transition: all 0.2s ease;
-    }
-    
-    .industry-tab.active {
-      background-color: #6D5BD4;
-      color: white;
-      border-color: #6D5BD4;
-    }
   </style>
 </head>
 <body class="bg-zinc-950 text-zinc-200">
@@ -69,32 +59,18 @@
         AI Lead Response + Follow-Up System
       </h1>
       <p class="text-xl text-zinc-400">
-        See how construction companies and medical labs get instant, expert-level responses to every lead — automatically.
+        See how we deliver instant, expert responses tailored to construction, medical labs, and service businesses.
       </p>
     </div>
 
-    <!-- Industry Selector -->
-    <div class="flex gap-3 mt-10 mb-8">
-      <button onclick="switchIndustry('construction')" id="tab-construction"
-              class="industry-tab active flex-1 md:flex-none px-8 py-3 rounded-2xl border border-[#6D5BD4] text-sm font-medium flex items-center justify-center gap-x-2">
-        <span>🏗️</span>
-        <span>Construction Companies</span>
-      </button>
-      <button onclick="switchIndustry('medlabs')" id="tab-medlabs"
-              class="industry-tab flex-1 md:flex-none px-8 py-3 rounded-2xl border border-zinc-700 hover:border-zinc-600 text-sm font-medium flex items-center justify-center gap-x-2">
-        <span>🧪</span>
-        <span>Medical Labs</span>
-      </button>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-10">
       
       <!-- Form -->
       <div class="lg:col-span-3">
         <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
           <div class="mb-6">
-            <div class="text-sm text-zinc-500 mb-1" id="form-subtitle">For Construction Companies</div>
-            <div class="text-2xl font-semibold tracking-tight" id="form-title">Get a project quote</div>
+            <div class="text-sm text-zinc-500 mb-1">Get a response from our expert</div>
+            <div class="text-2xl font-semibold tracking-tight">Submit your inquiry</div>
           </div>
 
           <form id="lead-form" onsubmit="submitLead(event)">
@@ -119,10 +95,10 @@
               </div>
 
               <div>
-                <label class="text-sm text-zinc-400 block mb-1.5" id="message-label">Project Details</label>
+                <label class="text-sm text-zinc-400 block mb-1.5">What do you need help with?</label>
                 <textarea id="message" rows="4" required 
                           class="w-full bg-zinc-950 border border-zinc-800 rounded-3xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4] resize-y"
-                          placeholder="Tell us about your project..."></textarea>
+                          placeholder="Tell us about your project, testing needs, or automation goals..."></textarea>
               </div>
 
               <button type="submit"
@@ -176,10 +152,10 @@
         
         <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 demo-card">
           <div class="flex items-center gap-x-3 mb-5">
-            <div class="w-9 h-9 rounded-full bg-[#6D5BD4] flex items-center justify-center text-xs font-medium">AI</div>
+            <div class="w-9 h-9 rounded-full bg-[#6D5BD4] flex items-center justify-center text-xs font-medium">MM</div>
             <div>
-              <div class="font-medium" id="responder-name">Senior Estimator</div>
-              <div class="text-xs text-zinc-500" id="responder-company">Town Lake Development</div>
+              <div class="font-medium">MachineMinds Expert</div>
+              <div class="text-xs text-zinc-500">Automation &amp; Operations Specialist</div>
             </div>
           </div>
           
@@ -201,45 +177,6 @@
   </div>
 
   <script>
-    let currentIndustry = 'construction';
-
-    function switchIndustry(industry) {
-      currentIndustry = industry;
-      
-      const tabConstruction = document.getElementById('tab-construction');
-      const tabMedlabs = document.getElementById('tab-medlabs');
-      
-      const formTitle = document.getElementById('form-title');
-      const formSubtitle = document.getElementById('form-subtitle');
-      const messageLabel = document.getElementById('message-label');
-      const messageField = document.getElementById('message');
-
-      if (industry === 'construction') {
-        tabConstruction.classList.add('active', 'border-[#6D5BD4]');
-        tabConstruction.classList.remove('border-zinc-700');
-        tabMedlabs.classList.remove('active', 'border-[#6D5BD4]');
-        tabMedlabs.classList.add('border-zinc-700');
-        
-        formTitle.innerText = 'Get a project quote';
-        formSubtitle.innerText = 'For Construction Companies';
-        messageLabel.innerText = 'Project Details';
-        messageField.placeholder = 'Tell us about your project or bid request...';
-      } else {
-        tabMedlabs.classList.add('active', 'border-[#6D5BD4]');
-        tabMedlabs.classList.remove('border-zinc-700');
-        tabConstruction.classList.remove('active', 'border-[#6D5BD4]');
-        tabConstruction.classList.add('border-zinc-700');
-        
-        formTitle.innerText = 'Request lab services';
-        formSubtitle.innerText = 'For Medical Laboratories';
-        messageLabel.innerText = 'Service Requirements';
-        messageField.placeholder = 'Describe the testing or analysis you need...';
-      }
-      
-      // Clear previous response
-      document.getElementById('response-section').classList.add('hidden');
-    }
-
     function submitLead(e) {
       e.preventDefault();
       
@@ -250,58 +187,25 @@
 
       const responseSection = document.getElementById('response-section');
       const aiResponseEl = document.getElementById('ai-response');
-      const responderName = document.getElementById('responder-name');
-      const responderCompany = document.getElementById('responder-company');
 
       responseSection.classList.remove('hidden');
       responseSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      // Simulate AI thinking
       aiResponseEl.innerHTML = `<span class="text-zinc-500">Generating expert response...</span>`;
 
       setTimeout(() => {
-        let responseHTML = '';
-        
-        if (currentIndustry === 'construction') {
-          responderName.innerText = 'Senior Project Estimator';
-          responderCompany.innerText = 'Town Lake Development';
-          
-          responseHTML = `
-            Hi ${name},<br><br>
-            Thanks for reaching out about your project. We specialize in commercial and residential developments and would be happy to help.<br><br>
-            To give you an accurate quote, could you share:<br>
-            • Expected start date and timeline?<br>
-            • Site location and any known constraints?<br><br>
-            Looking forward to learning more.<br><br>
-            Best regards,<br>
-            <strong>Marcus Rivera</strong><br>
-            Senior Estimator, Town Lake Development
-          `;
-        } else {
-          responderName.innerText = 'Laboratory Operations Manager';
-          responderCompany.innerText = 'ABDA Labs';
-          
-          responseHTML = `
-            Hello ${name},<br><br>
-            Thank you for your inquiry. ABDA Labs provides high-complexity testing with fast turnaround times for clinical and research clients.<br><br>
-            To prepare an accurate proposal, could you let me know:<br>
-            • Sample type and volume?<br>
-            • Required turnaround time?<br>
-            • Any specific accreditations needed (CLIA, CAP, etc.)?<br><br>
-            I’ll get a detailed quote prepared for you shortly.<br><br>
-            Best,<br>
-            <strong>Dr. Lena Patel</strong><br>
-            Laboratory Operations Manager, ABDA Labs
-          `;
-        }
+        const responseHTML = `
+          Hi ${name},<br><br>
+          Thank you for reaching out. At MachineMinds, we specialize in building automation systems for construction firms, medical laboratories, and service businesses.<br><br>
+          To give you the most relevant next step, could you share a bit more about your timeline and current pain points?<br><br>
+          Looking forward to helping you save time and capture more leads.<br><br>
+          Best regards,<br>
+          <strong>Alex Rivera</strong><br>
+          MachineMinds Expert • Automation &amp; Operations
+        `;
         
         aiResponseEl.innerHTML = responseHTML;
       }, 1350);
-    }
-
-    // Initialize with construction
-    window.onload = function() {
-      document.getElementById('tab-construction').classList.add('active', 'border-[#6D5BD4]');
     }
   </script>
 </body>
