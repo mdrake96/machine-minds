@@ -17,29 +17,10 @@
       font-weight: 600;
       letter-spacing: -0.03em;
     }
-
-    .demo-card {
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .response-bubble {
-      animation: fadeInUp 0.4s ease-out forwards;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   </style>
 </head>
 <body class="bg-zinc-950 text-zinc-200">
-  <div class="max-w-5xl mx-auto px-6 py-12">
+  <div class="max-w-4xl mx-auto px-6 py-12">
     <!-- Header -->
     <div class="flex items-center justify-between mb-10">
       <div class="flex items-center gap-x-3">
@@ -49,164 +30,65 @@
           <div class="text-xs text-zinc-500 -mt-0.5">AI Lead Automation</div>
         </div>
       </div>
-      <div class="text-sm px-4 py-1.5 bg-zinc-900 rounded-full border border-zinc-800">
-        Live Demo
-      </div>
     </div>
 
-    <div class="max-w-3xl">
+    <div class="max-w-2xl">
       <h1 class="display text-5xl tracking-tighter leading-none mb-4">
         AI Lead Response + Follow-Up System
       </h1>
       <p class="text-xl text-zinc-400">
-        See how we deliver instant, expert responses tailored to construction, medical labs, and service businesses.
+        See how we deliver instant, expert responses tailored to your business.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-10">
-      
-      <!-- Form -->
-      <div class="lg:col-span-3">
-        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-          <div class="mb-6">
-            <div class="text-sm text-zinc-500 mb-1">Get a response from our expert</div>
-            <div class="text-2xl font-semibold tracking-tight">Submit your inquiry</div>
-          </div>
+    <!-- Form -->
+    <div class="mt-12 max-w-xl">
+      <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+        <div class="mb-6">
+          <div class="text-xl font-semibold tracking-tight">Request a demo</div>
+          <div class="text-sm text-zinc-400 mt-1">We'll show you exactly how this works for your business.</div>
+        </div>
 
-          <form id="lead-form" onsubmit="submitLead(event)">
-            <div class="space-y-5">
+        <form action="https://formspree.io/f/mpqenoaj" method="POST">
+          <div class="space-y-5">
+            <div>
+              <label class="text-sm text-zinc-400 block mb-1.5">Full Name</label>
+              <input type="text" name="name" required 
+                     class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
+            </div>
+            
+            <div class="grid grid-cols-2 gap-5">
               <div>
-                <label class="text-sm text-zinc-400 block mb-1.5">Full Name</label>
-                <input type="text" id="name" required 
+                <label class="text-sm text-zinc-400 block mb-1.5">Email Address</label>
+                <input type="email" name="email" required 
                        class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
               </div>
-              
-              <div class="grid grid-cols-2 gap-5">
-                <div>
-                  <label class="text-sm text-zinc-400 block mb-1.5">Email Address</label>
-                  <input type="email" id="email" required 
-                         class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
-                </div>
-                <div>
-                  <label class="text-sm text-zinc-400 block mb-1.5">Phone</label>
-                  <input type="tel" id="phone" required 
-                         class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
-                </div>
-              </div>
-
               <div>
-                <label class="text-sm text-zinc-400 block mb-1.5">What do you need help with?</label>
-                <textarea id="message" rows="4" required 
-                          class="w-full bg-zinc-950 border border-zinc-800 rounded-3xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4] resize-y"
-                          placeholder="Tell us about your project, testing needs, or automation goals..."></textarea>
-              </div>
-
-              <button type="submit"
-                      class="w-full mt-2 bg-[#6D5BD4] hover:bg-[#5d4dc4] transition-colors py-3.5 rounded-2xl font-medium text-sm">
-                Submit Inquiry
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <!-- What happens next -->
-      <div class="lg:col-span-2">
-        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 h-full">
-          <div class="text-sm text-zinc-500 mb-4">WHAT HAPPENS NEXT</div>
-          
-          <div class="space-y-5 text-sm">
-            <div class="flex gap-4">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xs font-mono mt-0.5">1</div>
-              <div>
-                <div class="font-medium">Instant AI Response</div>
-                <div class="text-zinc-400 text-xs mt-0.5">Expert reply generated in &lt;3 seconds</div>
+                <label class="text-sm text-zinc-400 block mb-1.5">Phone</label>
+                <input type="tel" name="phone" required 
+                       class="w-full bg-zinc-950 border border-zinc-800 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4]">
               </div>
             </div>
-            <div class="flex gap-4">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xs font-mono mt-0.5">2</div>
-              <div>
-                <div class="font-medium">Lead Logged</div>
-                <div class="text-zinc-400 text-xs mt-0.5">Saved with full context and timestamp</div>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-6 h-6 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xs font-mono mt-0.5">3</div>
-              <div>
-                <div class="font-medium">Smart Follow-ups</div>
-                <div class="text-zinc-400 text-xs mt-0.5">1-day and 3-day sequences triggered</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- AI Response Preview -->
-    <div id="response-section" class="hidden mt-10">
-      <div class="max-w-3xl">
-        <div class="flex items-center gap-x-3 mb-4">
-          <div class="text-sm text-zinc-500">AI RESPONSE SENT</div>
-          <div class="h-px flex-1 bg-zinc-800"></div>
-        </div>
-        
-        <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 demo-card">
-          <div class="flex items-center gap-x-3 mb-5">
-            <div class="w-9 h-9 rounded-full bg-[#6D5BD4] flex items-center justify-center text-xs font-medium">MM</div>
             <div>
-              <div class="font-medium">MachineMinds Expert</div>
-              <div class="text-xs text-zinc-500">Automation &amp; Operations Specialist</div>
+              <label class="text-sm text-zinc-400 block mb-1.5">What are you looking to automate?</label>
+              <textarea name="message" rows="4" required 
+                        class="w-full bg-zinc-950 border border-zinc-800 rounded-3xl px-4 py-3 text-sm focus:outline-none focus:border-[#6D5BD4] resize-y"
+                        placeholder="Tell us about your current process or pain points..."></textarea>
             </div>
+
+            <button type="submit"
+                    class="w-full mt-2 bg-[#6D5BD4] hover:bg-[#5d4dc4] transition-colors py-3.5 rounded-2xl font-medium text-sm">
+              Submit Inquiry
+            </button>
           </div>
-          
-          <div class="prose prose-invert text-sm text-zinc-300 leading-relaxed" id="ai-response">
-            <!-- Populated by JS -->
-          </div>
-          
-          <div class="mt-6 pt-6 border-t border-zinc-800 text-xs text-emerald-400 flex items-center gap-x-2">
-            <div class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-            <span>Sent via Gmail • Logged in Airtable • Follow-up scheduled</span>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
 
-    <div class="mt-16 text-center text-xs text-zinc-500">
-      This is a live simulation. In production this runs on n8n + Hermes with real email delivery and CRM logging.
+    <div class="mt-8 text-xs text-zinc-500 max-w-xl">
+      Once submitted, we'll personally review your inquiry and show you a tailored demo of the system.
     </div>
   </div>
-
-  <script>
-    function submitLead(e) {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const message = document.getElementById('message').value;
-
-      const responseSection = document.getElementById('response-section');
-      const aiResponseEl = document.getElementById('ai-response');
-
-      responseSection.classList.remove('hidden');
-      responseSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      aiResponseEl.innerHTML = `<span class="text-zinc-500">Generating expert response...</span>`;
-
-      setTimeout(() => {
-        const responseHTML = `
-          Hi ${name},<br><br>
-          Thank you for reaching out. At MachineMinds, we specialize in building automation systems for construction firms, medical laboratories, and service businesses.<br><br>
-          To give you the most relevant next step, could you share a bit more about your timeline and current pain points?<br><br>
-          Looking forward to helping you save time and capture more leads.<br><br>
-          Best regards,<br>
-          <strong>Alex Rivera</strong><br>
-          MachineMinds Expert • Automation &amp; Operations
-        `;
-        
-        aiResponseEl.innerHTML = responseHTML;
-      }, 1350);
-    }
-  </script>
 </body>
 </html>
