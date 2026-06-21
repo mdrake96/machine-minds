@@ -425,5 +425,35 @@
       </div>
     </div>
   </footer>
+<!-- Frontline Support Bot -->
+<script>
+(function() {
+  const isMobile = window.innerWidth < 768;
+  const container = document.createElement("div");
+  container.style.cssText = "position:fixed;bottom:24px;right:24px;z-index:999999;";
+
+  const btn = document.createElement("button");
+  btn.innerHTML = "💬 Need help?";
+  btn.style.cssText = "padding:12px 20px;border-radius:9999px;background:#0A2540;color:white;border:none;font-size:15px;box-shadow:0 8px 24px rgba(10,37,64,0.3);cursor:pointer;";
+
+  const chat = document.createElement("div");
+  chat.style.cssText = `display:none;flex-direction:column;width:${isMobile ? "100vw" : "400px"};height:${isMobile ? "100dvh" : "580px"};background:white;border-radius:${isMobile ? "0" : "20px"};box-shadow:0 20px 60px rgba(0,0,0,0.25);overflow:hidden;position:absolute;bottom:${isMobile ? "0" : "80px"};right:0;`;
+
+  chat.innerHTML = `
+    <div style="background:#0A2540;color:white;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;">
+      <div><strong>MachineMinds</strong><br><span style="font-size:12px;opacity:0.75;">Automation Support</span></div>
+      <button id="close" style="background:none;border:none;color:white;font-size:24px;cursor:pointer;">×</button>
+    </div>
+    <iframe src="https://her2.app.n8n.cloud/form/I56TIwzpqgDAq8z6" style="width:100%;height:100%;border:none;"></iframe>
+  `;
+
+  btn.onclick = () => { chat.style.display = "flex"; btn.style.display = "none"; };
+  setTimeout(() => chat.querySelector("#close").onclick = () => { chat.style.display = "none"; btn.style.display = "flex"; }, 100);
+
+  container.appendChild(btn);
+  container.appendChild(chat);
+  document.body.appendChild(container);
+})();
+</script>
 </body>
 </html>
